@@ -109,7 +109,7 @@ class ParkingLotRepository {
   async deleteOldParkingLots() {
     const query = `
         DELETE FROM public."parking_lot"
-        WHERE updated_at < NOW() - INTERVAL '2 weeks';
+        WHERE updated_at < NOW() - INTERVAL '1 weeks';
       `;
 
     try {
