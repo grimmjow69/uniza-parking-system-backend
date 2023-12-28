@@ -72,4 +72,4 @@ class NotificationRepository {
   }
 }
 
-export default NotificationRepository;
+module.exports = NotificationRepository;

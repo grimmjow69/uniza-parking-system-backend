@@ -5,4 +5,4 @@ exports.getParkingLots = (req, res) => {};
 exports.getParkingLotById = (req, res) => {};
 
 // Get the usage history of parking lost for heatmap visualization
-exports.getParkingLotHeatmap = (req, res) => {};
+// exports.getParkingLotHeatmap = (req, res) => {};

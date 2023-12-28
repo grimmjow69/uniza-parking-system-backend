@@ -51,4 +51,4 @@ class ParkingLotService {
   }
 }
 
-export default ParkingLotService;
+module.exports = ParkingLotService;

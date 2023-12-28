@@ -40,4 +40,4 @@ class NotificationService {
   }
 }
 
-export default NotificationService;
+module.exports = NotificationService;

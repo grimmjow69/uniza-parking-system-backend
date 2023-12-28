@@ -14,4 +14,4 @@ class DataRetentionService {
   }
 }
 
-export default DataRetentionService;
+module.exports = DataRetentionService;

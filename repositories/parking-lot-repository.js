@@ -121,4 +121,4 @@ class ParkingLotRepository {
   }
 }
 
-export default ParkingLotRepository;
+module.exports = ParkingLotRepository;

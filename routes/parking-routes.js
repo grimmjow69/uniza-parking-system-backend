@@ -9,6 +9,6 @@ router.get("/", parkingController.getParkingLots);
 router.get("/:id", parkingController.getParkingLotById);
 
 // Get heatmap data from all parking lots
-router.get("/heatmap", parkingController.getParkingLotHeatmap);
+// router.get("/heatmap", parkingController.getParkingLotHeatmap);
 
 module.exports = router;

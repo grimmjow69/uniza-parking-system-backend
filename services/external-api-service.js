@@ -1,7 +1,4 @@
-import axios from "axios";
-import dotenv from "dotenv";
-
-dotenv.config();
+const axios = require("axios");
 
 const { EXTERNAL_API_URL, EXTERNAL_API_KEY } = process.env;
 
@@ -65,4 +62,4 @@ class ExternalApiService {
   }
 }
 
-export default ExternalApiService;
+module.exports = ExternalApiService;
