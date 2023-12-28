@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const notificationController = require("../controllers/notificationController");
+const notificationController = require("../controllers/notification-controller");
 
 // Subscribe to notification for specific parking lot changes
 router.post("/:id", notificationController.subscribeToNotifications);

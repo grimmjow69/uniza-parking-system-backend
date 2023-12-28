@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const parkingController = require("../controllers/parkingController");
+const parkingController = require("../controllers/parking-controller");
 
 // Get a list of parking lots with their current capacity
 router.get("/", parkingController.getParkingLots);

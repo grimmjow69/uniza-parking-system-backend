@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/userController");
+const userController = require("../controllers/user-controller");
 
 // Get user's profile information
 router.get("/profile", userController.getCurrentUserProfile);
