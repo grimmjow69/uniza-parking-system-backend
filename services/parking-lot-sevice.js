@@ -49,6 +49,15 @@ class ParkingLotService {
       throw error;
     }
   }
+
+  async getParkingLotsUsageHistory() {
+    try {
+      return await this.parkingLotRepository.countOccupiedBySpotName();
+    } catch (error) {
+      console.error(`Error fetching occupancy count by spot name: ${error.message}`);
+      throw error;
+    }
+  }
 }
 
 module.exports = ParkingLotService;

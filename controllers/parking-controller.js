@@ -52,5 +52,19 @@ exports.getParkingLotById = async (req, res) => {
   }
 };
 
-// Get the usage history of parking lost for heatmap visualization
-// exports.getParkingLotHeatmap = (req, res) => {};
+exports.getParkingLotsHeatmap = async (req, res) => {
+  try {
+    const heatMapData = await parkingLotService.getParkingLotsHeatmap();
+    res.status(200).json({
+      operation: OperationType.GET_PARKING_LOT_HEATMAP,
+      result: OperationStatus.SUCCESS,
+      content: heatMapData,
+    });
+  } catch (error) {
+    res.status(500).json({
+      operation: OperationType.GET_PARKING_LOT_HEATMAP,
+      result: OperationStatus.FAILED,
+      message: ResultMessage.GET_PARKING_LOT_HEATMAP_FAILED,
+    });
+  }
+};

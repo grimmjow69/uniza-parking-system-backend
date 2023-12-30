@@ -26,5 +26,6 @@ const ResultMessage = {
   LOGIN_FAILED: "Error during loging",
   USER_ERROR: "Unexpected error during finding user",
   PARKING_LOT_NOT_FOUND: "Parking lot not found",
+  GET_PARKING_LOT_HEATMAP_FAILED: "Error fetching parking lot usage history",
 };
 module.exports = ResultMessage;

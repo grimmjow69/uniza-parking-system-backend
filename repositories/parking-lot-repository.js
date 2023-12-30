@@ -119,6 +119,26 @@ class ParkingLotRepository {
       throw new Error(`Unable to delete old parking lots: ${error.message}`);
     }
   }
+
+  
+  async countOccupancyBySpotName() {
+    const query = `
+      SELECT spot_name, COUNT(*) AS times_occupied
+      FROM public."parking_lot"
+      WHERE occupied = true
+      GROUP BY spot_name;
+    `;
+
+    try {
+      const { rows } = await this.db.query(query);
+      return rows.map(row => ({
+        spotName: row.spot_name,
+        timesOccupied: parseInt(row.times_occupied),
+      }));
+    } catch (error) {
+      throw new Error(`Unable to retrieve occupancy count by spot name: ${error.message}`);
+    }
+  }
 }
 
 module.exports = ParkingLotRepository;
