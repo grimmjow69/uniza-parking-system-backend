@@ -17,18 +17,19 @@ class ExternalApiService {
   async fetchAndUpdateParkingLotData() {
     try {
       const response = await this.apiClient.get("/parking-lots");
-      const parkingLotData = response.data;
+      const parkingLotsData = response.data;
 
-      return parkingLotData;
+      return parkingLotsData;
     } catch (error) {
       console.error(
-        `Failed to fetch and update parking lot data - ${error.message}`
+        `Failed to fetch and update parking lots data - ${error.message}`
       );
       throw error;
     }
   }
 
-  async updateParkingLotsWithNewData(newParkingLotData) {
+  async updateParkingLotsWithNewData() {
+    const newParkingLotsData = this.fetchAndUpdateParkingLotData();
     const currentParkingLotData =
       await this.parkingLotRepository.getAllLatestParkingLots();
 
@@ -36,7 +37,7 @@ class ExternalApiService {
       currentParkingLotData.map((lot) => [lot.spot_name, lot])
     );
 
-    for (const newLot of newParkingLotData) {
+    for (const newLot of newParkingLotsData) {
       const currentLot = currentParkingLotMap.get(newLot.spot_name);
       newLot.occupied_since = null;
 
