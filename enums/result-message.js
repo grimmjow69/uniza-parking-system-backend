@@ -1,0 +1,30 @@
+const ResultMessage = {
+  INVALID_CREDENTIALS: "Invalid credentials",
+  INCORRECT_PASSWORD: "Incorrect password",
+  USER_NOT_FOUND: "User not found",
+  EMAIL_AREADY_TAKEN: "Email is already registered",
+  USERNAME_AREADY_TAKEN: "Username is already taken",
+  REGISTRATION_FAILED: "Registration failed",
+  REGISTRATION_ERROR: "An error occurred during registration",
+  UNREGISTRATION_FAILED: "Unregistration failed",
+  UNREGISTRATION_SUCCESS: "Unregistration success",
+  LOGIN_SUCESSFULL: "Login successful",
+  SUCCESFULL_REGISTRATION: "User registered successfully",
+  UNSUBSCRIBE_NOTIFICATION_SUCCESS:
+    "Notification has been unsubsribed successfully",
+  SUBSCRIBE_NOTIFICATINON_SUCCESS:
+    "Notification has been subsribed successfully",
+  UNSUBSCRIBE_NOTIFICATION_FAILED: "Unsubscripiton has failed",
+  SUBSCRIBE_NOTIFICATINON_FAILED: "Subsription has failed",
+  GET_USER_NOTIFICATIONS_FAILED: "Error during fetching user notifications",
+  GET_PARKING_LOTS_FAILED: "Error during fetching info about parking lots",
+  GET_PARKING_LOT_FAILED: "Error during fetching info about parking lot",
+  FAVOURITE_SPOT_SET_SUCCESSFULL: "Favourite parking spot added successfully",
+  FAVOURITE_SPOT_SET_FAILED: "Error during adding favourite spot",
+  PROFILE_UPDATE_SUCCESFULL: "Profile has been updated successfully",
+  PROFILE_UPDATE_FAILED: "Error during profile update",
+  LOGIN_FAILED: "Error during loging",
+  USER_ERROR: "Unexpected error during finding user",
+  PARKING_LOT_NOT_FOUND: "Parking lot not found",
+};
+module.exports = ResultMessage;

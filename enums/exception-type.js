@@ -1,0 +1,8 @@
+const ExtecptionType = {
+  EMAIL_TAKEN: "EMAIL_TAKEN",
+  USERNAME_TAKEN: "USERNAME_TAKEN",
+  USER_NOT_FOUND: "USER_NOT_FOUND",
+  INCORRECT_PASSWORD: "INCORRECT_PASSWORD",
+};
+
+module.exports = ExtecptionType;

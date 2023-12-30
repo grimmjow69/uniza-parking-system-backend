@@ -24,12 +24,27 @@ class NotificationRepository {
     }
   }
 
-  async deleteNotification(notificationId) {
+  async deleteNotificationById(notificationId) {
     const query = `
             DELETE FROM public."notification"
             WHERE notification_id = $1;
         `;
     const values = [notificationId];
+
+    try {
+      await this.db.query(query, values);
+      return true;
+    } catch (error) {
+      throw new Error(`Unable to delete notification: ${error.message}`);
+    }
+  }
+
+  async deleteNotificationByUserId(userId) {
+    const query = `
+            DELETE FROM public."notification"
+            WHERE user_id = $1;
+        `;
+    const values = [userId];
 
     try {
       await this.db.query(query, values);

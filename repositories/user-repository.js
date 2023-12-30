@@ -8,23 +8,11 @@ class UserRepository {
         INSERT INTO public."user" (
           username, 
           password_hash, 
-          email, 
-          profile_photo, 
-          favorite_spot_id, 
-          last_login, 
-          registration_at
-        ) VALUES ($1, $2, $3, $4, $5, $6, $7)
+          email
+        ) VALUES ($1, $2, $3)
         RETURNING user_id;
       `;
-    const values = [
-      user.username,
-      user.passwordHash,
-      user.email,
-      user.profilePhoto,
-      user.favoriteSpotId,
-      user.lastLogin,
-      user.registrationAt,
-    ];
+    const values = [user.username, user.passwordHash, user.email];
 
     try {
       const { rows } = await this.db.query(query, values);
@@ -49,39 +37,43 @@ class UserRepository {
     }
   }
 
-  async updateUser(userId, updateData) {
-    const setClause = [];
+  async updateUser(updateData) {
+    const setClauses = [];
     const values = [];
-
+  
     if (updateData.username) {
-      setClause.push(`username = $${setClause.length + 1}`);
+      setClauses.push(`username = $${setClauses.length + 1}`);
       values.push(updateData.username);
     }
-    if (updateData.passwordHash) {
-      setClause.push(`password_hash = $${setClause.length + 1}`);
-      values.push(updateData.passwordHash);
+    if (updateData.password) {
+      // TODO pswd need to be rehashed
+      setClauses.push(`password_hash = $${setClauses.length + 1}`);
+      values.push(updateData.password);
     }
     if (updateData.email) {
-      setClause.push(`email = $${setClause.length + 1}`);
+      setClauses.push(`email = $${setClauses.length + 1}`);
       values.push(updateData.email);
     }
     if (updateData.profilePhoto) {
-      setClause.push(`profile_photo = $${setClause.length + 1}`);
+      setClauses.push(`profile_photo = $${setClauses.length + 1}`);
       values.push(updateData.profilePhoto);
     }
-
-    if (setClause.length === 0) {
+  
+    if (setClauses.length === 0) {
       throw new Error("No valid fields provided for update");
     }
-
-    values.push(userId);
-
+  
+    values.push(updateData.userId);
+  
     const query = `
       UPDATE public."user"
-      SET ${setClause.join(", ")}
+      SET ${setClauses.join(", ")}
       WHERE user_id = $${values.length};
     `;
 
+    console.log(query)
+    console.log(values)
+  
     try {
       await this.db.query(query, values);
       return true;

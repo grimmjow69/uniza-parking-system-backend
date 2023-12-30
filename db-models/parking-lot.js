@@ -6,6 +6,5 @@ class ParkingLot {
       this.updatedAt = updatedAt;
       this.occupiedSince = occupiedSince;
     }
-}a
-
-export default ParkingLot;
+}
+module.exports = ParkingLot;

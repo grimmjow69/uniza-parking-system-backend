@@ -14,9 +14,18 @@ class NotificationService {
 
   async deleteNotification(notificationId) {
     try {
-      return await this.notificationRepository.deleteNotification(notificationId);
+      return await this.notificationRepository.deleteNotificationById(notificationId);
     } catch (error) {
       console.error(`Failed to delete notification - ${error.message}`);
+      throw error;
+    }
+  }
+
+  async deleteAllUserNotifications(userId) {
+    try {
+      return await this.notificationRepository.deleteNotificationByUserId(userId);
+    } catch (error) {
+      console.error(`Failed to delete user notifications - ${error.message}`);
       throw error;
     }
   }
